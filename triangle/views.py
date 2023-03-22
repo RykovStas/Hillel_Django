@@ -1,20 +1,17 @@
 from django.shortcuts import render, HttpResponse
 from .forms import Calc
-import math
-
 
 def gipo(request):
-
-    a = None
-    b = None
-
     result = None
+    if 'Submit' in request.GET:
+        user_form = Calc(request.GET)
 
-    if 'submit' in request.GET:
-        gipo = Calc()
-        if gipo.is_valid():
-            result = (gipo.cleaned_data['a']^2 + gipo.cleaned_data['b']^2) ** 0.5
-            gipo = Calc()
+        if user_form.is_valid():
+            a = user_form.cleaned_data['a']
+            b = user_form.cleaned_data['b']
+            result = (a^2 + b^2) ** 0.5
+
+            user_form = Calc()
     else:
-        gipo = Calc()
-    return render(request, 'triangle/gipo.html', {'calc_form': gipo})
+        user_form = Calc()
+    return render(request, 'triangle/gipo.html', {'calc_form': user_form, 'result': result})

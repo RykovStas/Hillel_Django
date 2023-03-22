@@ -6,17 +6,14 @@
 </head>
 <body>
     <h1>Calculate gipo</h1>
-    <ul>
-        <li>{{ reult }}</li>
-    </ul>
-
-
-<hr>
-
-    <form action="{% url 'triangle:gip' %}" method="get">
-        {{ calc_form.as_p }}
+    <form action="{% url 'triangle:triangle' %}" method="get">
+        <p>{{ calc_form.a.label_tag }} {{ calc_form.a }}</p>
+        <p>{{ calc_form.b.label_tag }} {{ calc_form.b }}</p>
         <input type="submit" value="CALCULATE">
     </form>
+    {% if result %}
+        <p>Result: {{ result }}</p>
+    {% endif %}
 
 </body>
 </html>

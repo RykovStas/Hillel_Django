@@ -5,5 +5,5 @@ from . import views
 
 app_name = 'triangle'
 urlpatterns = [
-    path('', views.gipo, name='gip')
+    path('', views.gipo, name='triangle')
 ]
