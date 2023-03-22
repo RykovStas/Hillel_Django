@@ -9,7 +9,7 @@
     <form action="{% url 'triangle:triangle' %}" method="get">
         <p>{{ calc_form.a.label_tag }} {{ calc_form.a }}</p>
         <p>{{ calc_form.b.label_tag }} {{ calc_form.b }}</p>
-        <input type="submit" value="CALCULATE">
+        <input type="Submit" name="Submit" value="CALCULATE">
     </form>
     {% if result %}
         <p>Result: {{ result }}</p>
