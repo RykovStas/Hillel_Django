@@ -45,7 +45,9 @@ INSTALLED_APPS = [
 
     'catalog.apps.CatalogConfig',
 
-    'triangle'
+    'triangle',
+
+    'user'
 ]
 
 MIDDLEWARE = [
