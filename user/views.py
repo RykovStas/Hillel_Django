@@ -6,3 +6,6 @@ def show_persons(request):
     users = UserModel.objects.all()
     return render(request, "user/persons.html", {'users': users})
 # Create your views here.
+
+def post_person(request):
+    if request.method == "POST":
