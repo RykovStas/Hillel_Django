@@ -1,7 +1,12 @@
 from django.urls import path
 
-from user.views import show_persons
 
+from . import views
+
+
+app_name = 'user'
 urlpatterns = [
-    path('', show_persons, name='persons')
+    path('', views.index, name='person'),
+    path('show_persons/', views.show_persons, name='show_persons'),
+
 ]
