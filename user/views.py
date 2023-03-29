@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import User as UserModel
-
+from .forms import PersonForm
 
 
 def index(request):
@@ -9,4 +9,16 @@ def index(request):
 def show_persons(request):
     users = UserModel.objects.all()
     return render(request, "user/persons.html", {'users': users})
-# Create your views here.
+
+
+def post_person(request):
+    if request.method == "POST":
+        user_form = PersonForm(request.POST)
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('user:show_persons')
+    else:
+        user_form = PersonForm()
+
+    return render(request, 'user/post_person.html', {'form': user_form})
+
