@@ -7,12 +7,10 @@
 <body>
 
 <h1>Persons</h1>
-
     <ul>
-        {%  for i in users %}
-            <li>{{ i }}</li>
-        {% endfor %}
+        {% for user in users %}
+            <li><a href="{% url 'user:person_update' pk=user.pk %}">{{ user }}</a></li>
+            {% endfor %}
     </ul>
-
 </body>
 </html>
