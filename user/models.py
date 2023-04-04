@@ -26,6 +26,5 @@ class Log(models.Model):
 
     def __str__(self):
         return f'{self.timestamp}, {self.method}'
-
     class Meta:
-        verbose_name = 'Logs'
+        verbose_name = 'Log'
